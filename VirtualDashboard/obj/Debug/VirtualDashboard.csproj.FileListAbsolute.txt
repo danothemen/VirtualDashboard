@@ -1,0 +1,9 @@
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.exe.config
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.exe
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.pdb
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csprojResolveAssemblyReference.cache
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Form1.resources
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Properties.Resources.resources
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csproj.GenerateResource.Cache
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.exe
+c:\users\daniel\documents\visual studio 2015\Projects\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.pdb
