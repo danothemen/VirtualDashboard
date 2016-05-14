@@ -42,9 +42,6 @@ namespace VirtualDashboard
 
                     portToWrite.WriteLine(command);
 
-                    //Can possibly be changed, trying to compensate for baud rate being lower than cpu clock
-                    Thread.Sleep(300);
-
                     //Trim feedback from OBD connector and process it
                     String result = portToWrite.ReadLine();
                     while(result.Trim().Equals("") || result.Trim()[0] == '>')
@@ -102,7 +99,10 @@ namespace VirtualDashboard
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                Dash.UpdateUI(Dash.DashElements[Mode], result);
+                if (Form1.DashElements[Mode] != null)
+                {
+                    Form1.DashElements[Mode].setValue(value);
+                }
                 excepted = true;
             }
 
@@ -122,12 +122,20 @@ namespace VirtualDashboard
                     //Coolant Temp
                     value = value - 40;
                     break;
+                case 16:
+                    //Air Flow
+                    value = value/100;
+                    break;
                 default:
                     break;
             }
             if (!excepted)
             {
-                Dash.UpdateUI(Dash.DashElements[Mode], value);
+                //Program.DashBoardDisplay.UpdateUI(Dash.DashElements[Mode], value);
+            }
+            if(Form1.DashElements[Mode] != null)
+            {
+                Form1.DashElements[Mode].setValue(value);
             }
 
         }

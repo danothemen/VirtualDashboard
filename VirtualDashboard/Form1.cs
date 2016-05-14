@@ -21,13 +21,16 @@ namespace VirtualDashboard
         static String[] commands = {
             "010C", //RPM
             "010D", //Speed
+            "010E", //Timing Advance
+            "010F", //Intake Air Temp
+            "0110", //MAF Air Intake
             "0104", //Engine Load
             "0105"  //Coolant Temp
         };
 
         String RxString = "";
 
-        public System.Windows.Forms.Label[] DashElements = new System.Windows.Forms.Label[14];
+        public static Gauge [] DashElements = new Gauge[17];
 
         public Form1()
         {
@@ -93,11 +96,14 @@ namespace VirtualDashboard
                 mon.Start();
 
                 //Assign UI elements to array for use in Monitor Class
-                DashElements[4] = EngineLoad;
-                DashElements[5] = CoolantTemp;
-                DashElements[12] = RPMLabel;
-                DashElements[13] = SpeedLabel;
-
+                DashElements[4] = new Gauge(100, 100, 4, 200, "Load", 0, 100); ;
+                DashElements[5] = new Gauge(350, 100, 5, 200, "Coolant", 0, 215); ;
+                DashElements[12] = new Gauge(600, 100, 12, 200, "RPM", 0, 16383);
+                DashElements[13] = new Gauge(850, 100, 13, 200, "Speed (KM/H)", 0, 125);
+                DashElements[14] = new Gauge(1100, 100, 14, 200, "Timing Advance", 0, 100);
+                DashElements[15] = new Gauge(1350, 100, 15, 200, "Intake Air Temp", 0, 100);
+                DashElements[16] = new Gauge(1600, 100, 16, 200, "Total Air Intake", 0, 655);
+                this.Close();
             }
             catch(UnauthorizedAccessException ex)
             {
@@ -108,54 +114,7 @@ namespace VirtualDashboard
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Monitor.Stop();
-        }
-
-        public void UpdateUI(System.Windows.Forms.Label lab, int value)
-        {
-            if (lab != null)
-            {
-                try {
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        try {
-                            lab.Text = "" + value; // runs on UI thread
-                    }
-                        catch (Exception e)
-                        {
-
-                        }
-                    });
-                }
-                catch(Exception e)
-                {
-
-                }
-            }
-        }
-
-        public void UpdateUI(System.Windows.Forms.Label lab, String value)
-        {
-            if (lab != null)
-            {
-                try {
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        try
-                        {
-                            lab.Text = value; // runs on UI thread
-                    }
-                        catch (Exception e)
-                        {
-
-                        }
-                    });
-                }
-                catch(Exception e)
-                {
-
-                }
-            }
+            //Monitor.Stop();
         }
 
     }

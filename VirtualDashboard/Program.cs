@@ -8,6 +8,8 @@ namespace VirtualDashboard
 {
     static class Program
     {
+        public static DashDisplay DashBoardDisplay;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,6 +19,8 @@ namespace VirtualDashboard
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            DashBoardDisplay = new DashDisplay();
+            Application.Run(DashBoardDisplay);
         }
     }
 }
