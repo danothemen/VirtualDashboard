@@ -42,6 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.EngineLoad = new System.Windows.Forms.Label();
             this.CoolantTemp = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.OpenLayout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ComPort
@@ -160,11 +162,32 @@
             this.CoolantTemp.TabIndex = 13;
             this.CoolantTemp.Text = "0";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 207);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Layout File";
+            // 
+            // OpenLayout
+            // 
+            this.OpenLayout.Location = new System.Drawing.Point(49, 233);
+            this.OpenLayout.Name = "OpenLayout";
+            this.OpenLayout.Size = new System.Drawing.Size(75, 23);
+            this.OpenLayout.TabIndex = 15;
+            this.OpenLayout.Text = "Open";
+            this.OpenLayout.UseVisualStyleBackColor = true;
+            this.OpenLayout.Click += new System.EventHandler(this.OpenLayout_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 588);
+            this.Controls.Add(this.OpenLayout);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.CoolantTemp);
             this.Controls.Add(this.EngineLoad);
             this.Controls.Add(this.label4);
@@ -201,6 +224,8 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label EngineLoad;
         public System.Windows.Forms.Label CoolantTemp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button OpenLayout;
     }
 }
 

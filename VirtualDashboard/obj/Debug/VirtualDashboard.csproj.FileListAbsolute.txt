@@ -25,3 +25,5 @@ C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\Vir
 C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Form1.resources
 C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Properties.Resources.resources
 C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\bin\Debug\Newtonsoft.Json.xml

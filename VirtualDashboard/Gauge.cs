@@ -20,36 +20,24 @@ namespace VirtualDashboard
         private int Min;
         private int Max;
         private double PercentWidth;
-
-        private double xPer;
-        private double yPer;
-
+        private double xUpperLeft;
+        private double yUpperLeft;
         private int value = 0;
-
         private Point start;
 
-        public Gauge(double xx, double yy, int modeCode,int formwidth,int formheight,double percentWidth,String label,int min, int max)
+        public void init()
         {
-            xPer = xx;
-            yPer = yy;
-
-            x = (int)(xx / 100 * formwidth);
-            y = (int)(yy / 100 * formheight);
-            FormHeight = formheight;
-            ModeCode = modeCode;
-            FormWidth = formwidth;
-            Label = label;
-            Min = min;
-            Max = max;
-            PercentWidth = percentWidth;
-            Width = percentWidth / 100 * formwidth;
+            FormWidth = 1920;
+            FormHeight = 1080;
+            x = (int)(xUpperLeft / 100 * FormWidth);
+            y = (int)(yUpperLeft / 100 * FormHeight);
+            Width = PercentWidth / 100 * FormWidth;
             start = new Point((int)(x + Width/2),(int) (y + Width/2));
         }
 
         public void Draw(PaintEventArgs e)
         {
             e.Graphics.DrawArc(Pens.Black, new Rectangle(x, y, (int)Width,(int) Width), 0, -180);
-
             //center labels and values
             StringFormat sf = new StringFormat();
             sf.LineAlignment = StringAlignment.Center;
@@ -80,14 +68,14 @@ namespace VirtualDashboard
         {
             FormWidth = width;
             Width = PercentWidth / 100 * FormWidth;
-            x = (int)(xPer / 100 * FormWidth);
+            x = (int)(xUpperLeft / 100 * FormWidth);
             start = new Point((int)(x + Width / 2), (int)(y + Width / 2));
         }
 
         public void setFormHeight(int height)
         {
             FormHeight = height;
-            y = (int)(yPer / 100 * FormHeight);
+            y = (int)(yUpperLeft / 100 * FormHeight);
             start = new Point((int)(x + Width / 2), (int)(y + Width / 2));
         }
 
