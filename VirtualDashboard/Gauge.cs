@@ -13,30 +13,42 @@ namespace VirtualDashboard
         private int x = 0;
         private int y = 0;
         private int ModeCode;
-        private int Width;
+        private int FormWidth;
+        private int FormHeight;
+        private double Width;
         private String Label;
         private int Min;
         private int Max;
+        private double PercentWidth;
+
+        private double xPer;
+        private double yPer;
 
         private int value = 0;
 
         private Point start;
 
-        public Gauge(int xx, int yy, int modeCode,int width,String label,int min, int max)
+        public Gauge(double xx, double yy, int modeCode,int formwidth,int formheight,double percentWidth,String label,int min, int max)
         {
-            x = xx;
-            y = yy;
+            xPer = xx;
+            yPer = yy;
+
+            x = (int)(xx / 100 * formwidth);
+            y = (int)(yy / 100 * formheight);
+            FormHeight = formheight;
             ModeCode = modeCode;
-            Width = width;
+            FormWidth = formwidth;
             Label = label;
             Min = min;
             Max = max;
-            start = new Point(xx + Width/2, yy + Width/2);
+            PercentWidth = percentWidth;
+            Width = percentWidth / 100 * formwidth;
+            start = new Point((int)(x + Width/2),(int) (y + Width/2));
         }
 
         public void Draw(PaintEventArgs e)
         {
-            e.Graphics.DrawArc(Pens.Black, new Rectangle(x, y, Width, Width), 0, -180);
+            e.Graphics.DrawArc(Pens.Black, new Rectangle(x, y, (int)Width,(int) Width), 0, -180);
 
             //center labels and values
             StringFormat sf = new StringFormat();
@@ -44,8 +56,8 @@ namespace VirtualDashboard
             sf.Alignment = StringAlignment.Center;
 
             //draw the gauge
-            e.Graphics.DrawString("" + value, new Font(FontFamily.GenericSansSerif, 20, FontStyle.Regular), Brushes.Black, new Rectangle(x, y - Width/4 + 10, Width, Width), sf);
-            e.Graphics.DrawString(Label, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Regular), Brushes.Black, new Rectangle(x, y + Width / 4 - 10, Width, Width), sf);
+            e.Graphics.DrawString("" + value, new Font(FontFamily.GenericSansSerif, 20, FontStyle.Regular), Brushes.Black, new Rectangle(x,(int) (y - Width/4 + 10),(int) Width,(int) Width), sf);
+            e.Graphics.DrawString(Label, new Font(FontFamily.GenericSansSerif, 15, FontStyle.Regular), Brushes.Black, new Rectangle(x, (int) (y + Width / 4 - 10), (int)Width,(int) Width), sf);
             e.Graphics.DrawLine(Pens.Black, start, calcPointFromValue(value));
         }
 
@@ -62,6 +74,21 @@ namespace VirtualDashboard
             double X = start.X + Width/2 * Math.Cos(a * Math.PI / 180F);
             double Y = start.Y + Width/2 * Math.Sin(a * Math.PI / 180F);
             return new Point((int)X,(int)Y);
+        }
+
+        public void setFormWidth(int width)
+        {
+            FormWidth = width;
+            Width = PercentWidth / 100 * FormWidth;
+            x = (int)(xPer / 100 * FormWidth);
+            start = new Point((int)(x + Width / 2), (int)(y + Width / 2));
+        }
+
+        public void setFormHeight(int height)
+        {
+            FormHeight = height;
+            y = (int)(yPer / 100 * FormHeight);
+            start = new Point((int)(x + Width / 2), (int)(y + Width / 2));
         }
 
     }

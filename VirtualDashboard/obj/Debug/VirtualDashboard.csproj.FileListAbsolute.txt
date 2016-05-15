@@ -16,3 +16,12 @@ C:\Users\Daniel\Desktop\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashb
 C:\Users\Daniel\Desktop\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Form1.resources
 C:\Users\Daniel\Desktop\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Properties.Resources.resources
 C:\Users\Daniel\Desktop\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.exe.config
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.exe
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.pdb
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.exe
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\bin\Debug\VirtualDashboard.pdb
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Form1.resources
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\VirtualDashboard\VirtualDashboard\obj\Debug\VirtualDashboard.csproj.GenerateResource.Cache
