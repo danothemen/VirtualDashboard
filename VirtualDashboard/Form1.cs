@@ -89,18 +89,9 @@ namespace VirtualDashboard
                 OBDPort.ReadLine();
 
                 //Create new monitor object to run on seperate thread
-                Monitor mon = new Monitor(OBDPort, commands,this);
+                Monitor mon = new Monitor(OBDPort, DashElements,this);
                 mon.Start();
 
-                //Assign UI elements to array for use in Monitor Class
-                /*DashElements[4] = new Gauge(11, 10, 4, 1920, 1080, 11, "Load", 0, 100);
-                DashElements[5] = new Gauge(22.5, 10, 5, 1920, 1080, 11, "Coolant", 0, 215);
-                DashElements[12] = new Gauge(34, 10, 12, 1920, 1080, 11, "RPM", 0, 16383);
-                DashElements[13] = new Gauge(45.5, 10, 13, 1920, 1080, 11, "Speed (KM/H)", 0, 125);
-                DashElements[14] = new Gauge(57, 10, 14, 1920, 1080, 11, "Timing Advance", 0, 100);
-                DashElements[15] = new Gauge(68.5, 10, 15, 1920, 1080, 11, "Intake Air Temp", 0, 100);
-                DashElements[16] = new Gauge(80, 10, 16, 1920, 1080, 11, "Total Air Intake", 0, 655);
-                */
                 this.Close();
             }
             catch(UnauthorizedAccessException ex)
@@ -131,13 +122,27 @@ namespace VirtualDashboard
                 {
                     if ((myStream = openFileDialog1.OpenFile()) != null)
                     {
+                        FileChosen.Text = openFileDialog1.FileName;
+            
                         using (StreamReader reader = new StreamReader(myStream, Encoding.UTF8))
                         {
                             // Insert code to read the stream here.
                             GaugeJSON = reader.ReadToEnd();
                             Console.WriteLine(GaugeJSON);
                             Console.WriteLine("Read File");
-                            DashElements = JsonConvert.DeserializeObject<Gauge[]>(GaugeJSON);
+                            Gauge [] gags = JsonConvert.DeserializeObject<Gauge[]>(GaugeJSON);
+                            for(int i = 0; i < DashElements.Length; i++)
+                            {
+                                foreach(Gauge gag in gags)
+                                {
+                                    if(gag.ModeCode == i)
+                                    {
+                                        DashElements[i] = gag;
+                                        DashElements[i].init();
+                                        ConnectBtn.Enabled = true;
+                                    }
+                                }
+                            }
                         }
                     }
                 }

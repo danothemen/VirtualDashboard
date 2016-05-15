@@ -15,10 +15,10 @@ namespace VirtualDashboard
         static SerialPort portToWrite;
         private static bool running = false;
         Thread readThread = new Thread(run);
-        private static String[] commands;
+        private static Gauge[] commands;
         static Form1 Dash;
 
-        public Monitor(SerialPort OBDPort, String [] Commands, Form1 dash)
+        public Monitor(SerialPort OBDPort, Gauge [] Commands, Form1 dash)
         {
             if (!OBDPort.IsOpen)
             {
@@ -33,24 +33,26 @@ namespace VirtualDashboard
         {
             while (running)
             {
-                foreach(String com in commands)
+                foreach(Gauge com in commands)
                 {
-
-                    String command = com;
-                    //Add return character to each command so the elm chip executes it
-                    command += "\r";
-
-                    portToWrite.WriteLine(command);
-
-                    //Trim feedback from OBD connector and process it
-                    String result = portToWrite.ReadLine();
-                    while(result.Trim().Equals("") || result.Trim()[0] == '>')
+                    if (com != null)
                     {
-                        result = portToWrite.ReadLine();
-                    }
+                        String command = com.Command;
+                        //Add return character to each command so the elm chip executes it
+                        command += "\r";
 
-                    result = result.Trim();
-                    processResult(result,""+command[2]+command[3]);
+                        portToWrite.WriteLine(command);
+
+                        //Trim feedback from OBD connector and process it
+                        String result = portToWrite.ReadLine();
+                        while (result.Trim().Equals("") || result.Trim()[0] == '>')
+                        {
+                            result = portToWrite.ReadLine();
+                        }
+
+                        result = result.Trim();
+                        processResult(result, "" + command[2] + command[3]);
+                    }
 
                 }
             }

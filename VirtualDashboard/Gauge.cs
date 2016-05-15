@@ -12,18 +12,19 @@ namespace VirtualDashboard
     {
         private int x = 0;
         private int y = 0;
-        private int ModeCode;
-        private int FormWidth;
-        private int FormHeight;
-        private double Width;
-        private String Label;
-        private int Min;
-        private int Max;
-        private double PercentWidth;
-        private double xUpperLeft;
-        private double yUpperLeft;
-        private int value = 0;
-        private Point start;
+        public int ModeCode;
+        public int FormWidth;
+        public int FormHeight;
+        public double Width;
+        public String Label;
+        public String Command;
+        public int Min;
+        public int Max;
+        public double PercentWidth;
+        public double xUpperLeft;
+        public double yUpperLeft;
+        public int value = 0;
+        public Point start;
 
         public void init()
         {

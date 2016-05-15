@@ -1,0 +1,20 @@
+[{
+    "ModeCode": 12,
+    "Command":"010C",
+    "Label": "RPM",
+    "Min": 0,
+    "Max":17000,
+    "PercentWidth":12,
+    "XUpperLeft":10,
+    "yUpperLeft":10
+},
+{
+    "ModeCode": 13,
+    "Command":"010D",
+    "Label": "Speed",
+    "Min": 0,
+    "Max":255,
+    "PercentWidth":12,
+    "XUpperLeft":24,
+    "yUpperLeft":10
+}]
